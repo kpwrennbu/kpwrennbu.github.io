@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+* { 
+    background-color: black;
+    font-family: 'VT323', monospace;
+    color: white;
+    box-sizing: border-box;
+}
+nav { 
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    padding-bottom: 5em;
+}
+#title { 
+    font-size: 3em;
+    margin: 0 1em;
+}
+#buttons { 
+    display: flex;
+    flex-flow: row nowrap;
+}
+#buttons > div { 
+    display: inline-block; 
+    margin: 0 1em;
+    font-size: 3em;
+    text-align: center;
+}
+#buttons a:hover { 
+    color: rgb(41, 41, 199)
+}
+#inspiration { 
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.inspiration-text { 
+    border: 1px solid white;
+    width: 66%;
+    box-shadow: 0px 5px 3em #fff;
+    z-index: 5;
+}
+.inspiration-text h1 { 
+    text-align: center;
+    font-size: 3em;
+}
+.inspiration-text p { 
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+.inspiration-img img { 
+
+}
+.inspiration-img figcaption { 
+    text-align: center;
+    margin-top: 0.5em;
+}
+#old-remaster-exs { 
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-items: center;
+}
+#old-remaster-exs div { 
+    width: 30em; 
+    
+    margin: 5em;
+}
+#old-remaster-exs img { 
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 5px 3em #fff;
+}
+#research { 
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-items: center;
+}
+#research-text { 
+    border: 1px solid white;
+    width: 66%;
+    box-shadow: 0px 5px 3em #fff;
+    z-index: 5;
+    display: block;
+    text-align: center;
+}
+#research-text h1 { 
+    text-align: center;
+    font-size: 3em;
+}
+#research-text p { 
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+#research-imgs { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 5em;
+}
+#research-imgs img { 
+    box-shadow: 0px 5px 3em #fff;
+}
+.n64 { 
+    width: 35em;
+
+}
+.switch { 
+    height: 35em;
+}
+.switch img { 
+    z-index: 5;
+}
+#counter { 
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.quote { 
+    border: 1px solid white;
+    box-shadow: 0px 5px 3em #fff;  
+    width: 25%;
+    margin: 0 3em;
+}
+.quote h1 { 
+    text-align: center;
+    font-size: 3em;
+}
+.quote p {
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+#counter-text { 
+    border: 1px solid white;
+    box-shadow: 0px 5px 3em #fff;
+    z-index: 5;
+    width: 33%;
+}
+#counter-text h1 { 
+    text-align: center;
+    font-size: 3em;
+}
+#counter-text p { 
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+#counter-imgs { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 5em;
+}
+#counter-imgs img { 
+    box-shadow: 0px 5px 3em #fff;
+}
+.gamecube { 
+    height: 28em;
+    margin: 5em 10em;
+}
+.threeDS { 
+    width: 30em;
+    margin: 5em 10em;
+}
+#remediation { 
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.remediation-text { 
+    border: 1px solid white;
+    width: 66%;
+    box-shadow: 0px 5px 3em #fff;
+    z-index: 5;
+}
+.remediation-text h1 { 
+    text-align: center;
+    font-size: 3em;
+}
+.remediation-text p { 
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+#remediation-exs { 
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+#remediation-exs img { 
+    box-shadow: 0px 5px 3em #fff;
+}
+.tea-cozy, .eng-proj { 
+    display: flex;
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+}
+a figcaption { 
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 4em;
+}
+#remediation-exs div figcaption:hover { 
+    color: rgb(41, 41, 199);
+}
