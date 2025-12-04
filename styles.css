@@ -283,25 +283,29 @@ h3.subheading {
 /* Visualization Frames - Mobile First */
 .visualization-frame {
     width: 100%;
+    min-width: 600px;
     border: none;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     background: var(--light-gray);
     height: 350px;
     min-height: 350px;
-    max-width: 100%;
     display: block;
 }
 
 .section-viz {
     display: block;
     min-height: auto;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
 
 .section-viz .visualization-frame {
     height: 350px;
     min-height: 350px;
+    min-width: 600px;
 }
 
 /* Visualization responsive scaling */
@@ -309,12 +313,14 @@ h3.subheading {
     .visualization-frame {
         height: 400px;
         min-height: 400px;
+        min-width: 700px;
         border-radius: 10px;
     }
     
     .section-viz .visualization-frame {
         height: 400px;
         min-height: 400px;
+        min-width: 700px;
     }
 }
 
@@ -322,11 +328,17 @@ h3.subheading {
     .visualization-frame {
         height: 500px;
         min-height: 500px;
+        min-width: 800px;
+    }
+    
+    .section-viz {
+        overflow: visible;
     }
     
     .section-viz .visualization-frame {
         height: 500px;
         min-height: 500px;
+        min-width: 100%;
     }
 }
 
@@ -334,11 +346,13 @@ h3.subheading {
     .visualization-frame {
         height: 600px;
         min-height: 600px;
+        min-width: 100%;
     }
     
     .section-viz .visualization-frame {
         height: 600px;
         min-height: 600px;
+        min-width: 100%;
     }
 }
 
@@ -634,11 +648,13 @@ h3.subheading {
     .visualization-frame {
         height: 280px;
         min-height: 280px;
+        min-width: 600px;
     }
     
     .section-viz .visualization-frame {
         height: 280px;
         min-height: 280px;
+        min-width: 600px;
     }
 }
 
@@ -677,11 +693,13 @@ h3.subheading {
     .visualization-frame {
         height: 300px;
         min-height: 300px;
+        min-width: 500px;
     }
     
     .section-viz .visualization-frame {
         height: 300px;
         min-height: 300px;
+        min-width: 500px;
     }
 }
 
