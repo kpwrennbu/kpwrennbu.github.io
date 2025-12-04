@@ -22,15 +22,42 @@
     <!-- TOC Nav – points by question -->
     <div class="nav-container">
         <div class="nav">
-            <a class="nav-item active" href="#overview">Overview</a>
-            <a class="nav-item" href="#q1">Q1: Length & Complexity</a>
-            <a class="nav-item" href="#q2">Q2: Explicit Opt-in & Opt-out</a>
-            <a class="nav-item" href="#q3">Q3: Most Frequent Terms</a>
-            <a class="nav-item" href="#q4">Q4: Political Influences</a>
-            <a class="nav-item" href="#q5">Q5: Policy Complexity</a>
-            <a class="nav-item" href="#q6">Q6: Platform Comparison</a>
-            <a class="nav-item" href="#q7">Q7: Arbitration</a>
-            <a class="nav-item" href="#q8">Q8: Class Action</a>
+            <a class="nav-item active" href="#overview">
+                <span class="nav-full">Overview</span>
+                <span class="nav-short">Overview</span>
+            </a>
+            <a class="nav-item" href="#q1">
+                <span class="nav-full">Q1: Length & Complexity</span>
+                <span class="nav-short">Q1: Length</span>
+            </a>
+            <a class="nav-item" href="#q2">
+                <span class="nav-full">Q2: Explicit Opt-in & Opt-out</span>
+                <span class="nav-short">Q2: Opt-in</span>
+            </a>
+            <a class="nav-item" href="#q3">
+                <span class="nav-full">Q3: Most Frequent Terms</span>
+                <span class="nav-short">Q3: Terms</span>
+            </a>
+            <a class="nav-item" href="#q4">
+                <span class="nav-full">Q4: Political Influences</span>
+                <span class="nav-short">Q4: Politics</span>
+            </a>
+            <a class="nav-item" href="#q5">
+                <span class="nav-full">Q5: Policy Complexity</span>
+                <span class="nav-short">Q5: Spice</span>
+            </a>
+            <a class="nav-item" href="#q6">
+                <span class="nav-full">Q6: Platform Comparison</span>
+                <span class="nav-short">Q6: Compare</span>
+            </a>
+            <a class="nav-item" href="#q7">
+                <span class="nav-full">Q7: Arbitration</span>
+                <span class="nav-short">Q7: Arbitr.</span>
+            </a>
+            <a class="nav-item" href="#q8">
+                <span class="nav-full">Q8: Class Action</span>
+                <span class="nav-short">Q8: Class</span>
+            </a>
         </div>
     </div>
 
@@ -101,63 +128,88 @@
         <!-- Invisible anchors for question starts (no visible "section starters") -->
         <div id="q1"></div>
 
-        <!-- Q1 SLIDES -->
-        <section id="q1_complexity" class="section section-viz">
-            <h2>Q1 · Policy Complexity Over Time</h2>
-            <p>This visualization tracks how the complexity of privacy policies has evolved from 2016 to 2025, using readability metrics like Flesch-Kincaid Grade Level. The chart reveals a concerning trend: policies have become significantly harder to read over time, with most platforms now requiring college-level reading skills. Notice how regulatory events like GDPR (2018) and CCPA (2020) correlate with spikes in complexity, as companies added legal compliance language that made policies less accessible to average users.</p>
-            <h3 class="subheading">Complexity Over Time</h3>
-            <iframe src="./visualizations/q1_html/q1_complexity_over_time.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q1_grade" class="section section-viz">
-            <h2>Q1 · Grade Level by Company</h2>
-            <p>This chart compares the reading difficulty across major social media platforms, showing the estimated U.S. grade level needed to comprehend each platform's privacy policy. Most platforms require 12th grade to college-level reading skills, making them inaccessible to many users. Platforms like LinkedIn and Facebook consistently rank among the most complex, while newer platforms like TikTok show slightly more readable policies. The color coding helps identify which platforms are prioritizing user accessibility versus legal complexity.</p>
-            <h3 class="subheading">Grade Level Analysis</h3>
-            <iframe src="./visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q1_length_vs_readability" class="section section-viz">
-            <h2>Q1 · Length vs Readability</h2>
-            <p>This scatter plot explores whether longer privacy policies are inherently harder to understand. Each point represents a policy document, with word count on the x-axis and reading difficulty on the y-axis. The data reveals a moderate positive correlation: longer policies do tend to be more complex, but there are notable exceptions. Some platforms manage to create comprehensive yet readable policies, while others pack complexity into shorter documents. The trend line and color coding help identify outliers and best practices for balancing thoroughness with accessibility.</p>
-            <h3 class="subheading">Length vs Readability Correlation</h3>
-            <iframe src="./visualizations/q1_html/q1_length_vs_readability.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q1_word_count" class="section section-viz">
-            <h2>Q1 · Word Count Evolution</h2>
-            <p>This temporal analysis shows the dramatic growth in privacy policy length over nearly a decade. Most platforms have doubled or tripled their policy word counts since 2016, driven by regulatory requirements, feature expansion, and legal risk management. The interactive timeline allows you to see how specific events (like GDPR implementation) triggered policy expansions across the industry. Some platforms show steady growth, while others exhibit sudden jumps during regulatory periods, revealing different approaches to policy management and user communication.</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="./visualizations/q1_html/q1_word_count_over_time.html?v=3" class="visualization-frame"></iframe>
+        <!-- Q1 TABBED SECTION -->
+        <section id="q1_section" class="section">
+            <h2>Q1 · Policy Length & Complexity Analysis</h2>
+            <p>This section tracks how the complexity and length of privacy policies has evolved from 2016 to 2025, using readability metrics and word count analysis. The visualizations reveal concerning trends about policy accessibility and the impact of regulatory events.</p>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="complexity">Complexity Over Time</button>
+                    <button class="tab-btn" data-tab="grade">Grade Level</button>
+                    <button class="tab-btn" data-tab="length">Length vs Readability</button>
+                    <button class="tab-btn" data-tab="word-count">Word Count Evolution</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-complexity">
+                        <h3 class="subheading">Policy Complexity Over Time</h3>
+                        <p class="tab-description">This visualization tracks how the complexity of privacy policies has evolved, using readability metrics like Flesch-Kincaid Grade Level. Notice how regulatory events like GDPR (2018) and CCPA (2020) correlate with spikes in complexity.</p>
+                        <iframe src="./visualizations/q1_html/q1_complexity_over_time.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-grade">
+                        <h3 class="subheading">Grade Level by Company</h3>
+                        <p class="tab-description">This chart compares the reading difficulty across major social media platforms, showing the estimated U.S. grade level needed to comprehend each platform's privacy policy. Most platforms require 12th grade to college-level reading skills.</p>
+                        <iframe src="./visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-length">
+                        <h3 class="subheading">Length vs Readability Correlation</h3>
+                        <p class="tab-description">This scatter plot explores whether longer privacy policies are inherently harder to understand. The data reveals a moderate positive correlation, but there are notable exceptions where platforms balance thoroughness with accessibility.</p>
+                        <iframe src="./visualizations/q1_html/q1_length_vs_readability.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-word-count">
+                        <h3 class="subheading">Word Count Over Time</h3>
+                        <p class="tab-description">This temporal analysis shows the dramatic growth in privacy policy length over nearly a decade. Most platforms have doubled or tripled their policy word counts since 2016, driven by regulatory requirements and feature expansion.</p>
+                        <iframe src="./visualizations/q1_html/q1_word_count_over_time.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div id="q2"></div>
 
-        <section id="q2_opt_in_ratio_company" class="section section-viz">
-            <h2>Q2 · Opt-in Ratio by Company</h2>
-            <p>This chart compares the opt-in to opt-out language ratio across different social media platforms, revealing which companies prioritize explicit user consent versus default permissions. Companies with higher ratios use more opt-in language, giving users clearer choices about data collection. The visualization helps identify which platforms follow privacy-by-design principles versus those that rely on user inaction for data collection permissions.</p>
-            <h3 class="subheading">Company-by-Company Opt-in Analysis</h3>
-            <iframe src="./visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q2_opt_in_ratio_time" class="section section-viz">
-            <h2>Q2 · Opt-in Ratio Over Time</h2>
-            <p>This temporal analysis shows how the balance between opt-in and opt-out language has shifted across the industry from 2016 to 2025. The timeline reveals key inflection points where regulatory pressure (especially GDPR in 2018) drove platforms to adopt more explicit consent language. Notice how the overall trend moves toward higher opt-in ratios, indicating growing emphasis on user choice and transparency in data collection practices.</p>
-            <h3 class="subheading">Temporal Opt-in Trends</h3>
-            <iframe src="./visualizations/q2_html/q2_opt_in_ratio_over_time.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q2_opt_in_vs_opt_out" class="section section-viz">
-            <h2>Q2 · Explicit Opt-in and Opt-out Language</h2>
-            <p>This side-by-side comparison directly contrasts how platforms present consent choices to users. The visualization breaks down the specific frequency of clear opt-in language ("you can choose to...") versus opt-out mechanisms ("you may disable..."). This analysis reveals the user experience design philosophy of each platform - whether they make data collection the default or require active user participation in data sharing decisions.</p>
-            <h3 class="subheading">Direct Consent Language Comparison</h3>
-            <iframe src="./visualizations/q2_html/q2_opt_in_vs_opt_out_by_company.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q2_radar" class="section section-viz">
-            <h2>Q2 · Privacy Control Radar</h2>
-            <p>This radar chart provides a multidimensional view of each platform's privacy control offerings across different categories like data access, deletion rights, consent granularity, and transparency measures. The larger the area covered by a platform's shape, the more comprehensive their privacy controls. This visualization makes it easy to compare platforms holistically and identify leaders in user privacy empowerment versus those with more limited control options.</p>
-            <h3 class="subheading">Multidimensional Privacy Control Assessment</h3>
-            <iframe src="./visualizations/q2_html/q2_radar_chart.html?v=3" class="visualization-frame"></iframe>
+        <!-- Q2 TABBED SECTION -->
+        <section id="q2_section" class="section">
+            <h2>Q2 · Explicit Opt-in & Opt-out Analysis</h2>
+            <p>This section examines how platforms present consent choices to users, comparing opt-in versus opt-out language and analyzing privacy control offerings across different dimensions.</p>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="company">By Company</button>
+                    <button class="tab-btn" data-tab="time">Over Time</button>
+                    <button class="tab-btn" data-tab="comparison">Language Comparison</button>
+                    <button class="tab-btn" data-tab="radar">Privacy Controls</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-company">
+                        <h3 class="subheading">Opt-in Ratio by Company</h3>
+                        <p class="tab-description">This chart compares the opt-in to opt-out language ratio across different social media platforms, revealing which companies prioritize explicit user consent versus default permissions.</p>
+                        <iframe src="./visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-time">
+                        <h3 class="subheading">Opt-in Trends Over Time</h3>
+                        <p class="tab-description">This temporal analysis shows how the balance between opt-in and opt-out language has shifted across the industry from 2016 to 2025, with key inflection points like GDPR in 2018.</p>
+                        <iframe src="./visualizations/q2_html/q2_opt_in_ratio_over_time.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-comparison">
+                        <h3 class="subheading">Explicit Opt-in vs Opt-out Language</h3>
+                        <p class="tab-description">This side-by-side comparison directly contrasts how platforms present consent choices, breaking down the specific frequency of clear opt-in versus opt-out language.</p>
+                        <iframe src="./visualizations/q2_html/q2_opt_in_vs_opt_out_by_company.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-radar">
+                        <h3 class="subheading">Privacy Control Radar Chart</h3>
+                        <p class="tab-description">This radar chart provides a multidimensional view of each platform's privacy control offerings across categories like data access, deletion rights, and consent granularity.</p>
+                        <iframe src="./visualizations/q2_html/q2_radar_chart.html?v=3" class="visualization-frame"></iframe>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
@@ -312,6 +364,33 @@
     </div>
 
     <script>
+    // Tab functionality
+    function initTabs() {
+        const tabContainers = document.querySelectorAll('.tab-container');
+        
+        tabContainers.forEach(container => {
+            const tabButtons = container.querySelectorAll('.tab-btn');
+            const tabPanes = container.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panes in this container
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding pane
+                    button.classList.add('active');
+                    const targetPane = container.querySelector(`#tab-${targetTab}`);
+                    if (targetPane) {
+                        targetPane.classList.add('active');
+                    }
+                });
+            });
+        });
+    }
+
     // All visualization "slides"
     const slides = Array.from(document.querySelectorAll('.section-viz'));
     const overview = document.getElementById('overview');
@@ -393,8 +472,12 @@
         cardObserver.observe(card);
     });
 
-    // Fade-in for iframes when loaded
+    // Initialize everything when page loads
     document.addEventListener('DOMContentLoaded', function() {
+        // Initialize tabs
+        initTabs();
+        
+        // Fade-in for iframes when loaded
         const iframes = document.querySelectorAll('.visualization-frame');
         iframes.forEach(iframe => {
             iframe.style.opacity = '0';
