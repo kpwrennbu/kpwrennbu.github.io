@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arbitration Severity – Article Figure</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px 24px 32px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    p {
+      margin: 4px 0 10px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+      padding: 16px 20px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #fig {
+      height: 480px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Arbitration Severity – Selected Platforms</h1>
+    <p>
+      Precomputed Plotly figure showing arbitration severity over time for a subset of major platforms.
+      Hover to view representative arbitration snippets taken from the underlying policies.
+    </p>
+    <div id="fig"></div>
+  </div>
+
+  <script>
+    // This is a cleaned-up version of the JSON you provided, kept valid JS
+    const FINAL_FIG = {
+      data: [
+        {
+          name: "Instagram",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2018, 2019, 2020, 2021],
+          y: [2.92, 2.92, 2.92, 2.92],
+          customdata: [
+            ["Instagram", 2018, "2.92", "Instagram Terms… ARBITRATION NOTICE: YOU AGREE THAT DISPUTES BETWEEN YOU AND…"],
+            ["Instagram", 2019, "2.92", "Instagram Terms… ARBITRATION NOTICE: YOU AGREE THAT DISPUTES BETWEEN YOU AND…"],
+            ["Instagram", 2020, "2.92", "Instagram Terms… ARBITRATION NOTICE: YOU AGREE THAT DISPUTES BETWEEN YOU AND…"],
+            ["Instagram", 2021, "2.92", "Instagram Terms… ARBITRATION NOTICE: YOU AGREE THAT DISPUTES BETWEEN YOU AND…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#C16668" },
+          marker: { size: 6, color: "#C16668" },
+          legendgroup: "Instagram",
+          showlegend: true
+        },
+        {
+          name: "WhatsApp",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2016, 2017, 2018, 2019, 2020, 2021],
+          y: [2.92, 2.92, 2.92, 2.92, 2.92, 0.0],
+          customdata: [
+            ["WhatsApp", 2016, "2.92", "WhatsApp US/Canada users: binding arbitration provision…"],
+            ["WhatsApp", 2017, "2.92", "WhatsApp US/Canada users: binding arbitration provision…"],
+            ["WhatsApp", 2018, "2.92", "WhatsApp US/Canada users: binding arbitration provision…"],
+            ["WhatsApp", 2019, "2.92", "WhatsApp US/Canada users: binding arbitration provision…"],
+            ["WhatsApp", 2020, "2.92", "WhatsApp US/Canada users: binding arbitration provision…"],
+            ["WhatsApp", 2021, "0.00", "Special Arbitration Provision for United States or Canada Users…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#52796F" },
+          marker: { size: 6, color: "#52796F" },
+          legendgroup: "WhatsApp",
+          showlegend: true
+        },
+        {
+          name: "TikTok",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2020, 2021, 2022, 2023],
+          y: [0.0, 0.0, 1.67, 1.67],
+          customdata: [
+            ["TikTok", 2020, "0.00", "Mediation and DIFC-LCIA arbitration language…"],
+            ["TikTok", 2021, "0.00", "Mediation and DIFC-LCIA arbitration language…"],
+            ["TikTok", 2022, "1.67", "ARBITRATION NOTICE FOR USERS IN THE UNITED STATES: THESE TERMS…"],
+            ["TikTok", 2023, "1.67", "ARBITRATION NOTICE FOR USERS IN THE UNITED STATES: THESE TERMS…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#F79C12" },
+          marker: { size: 6, color: "#F79C12" },
+          legendgroup: "TikTok",
+          showlegend: true
+        },
+        {
+          name: "WeChat",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          y: [0,0,0,0,0,0,0,0,0,0,0],
+          customdata: [
+            ["WeChat", 2015, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2016, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2017, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2018, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2019, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2020, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2021, "0.00", "Disputes referred to HKIAC arbitration…"],
+            ["WeChat", 2022, "0.00", "Disputes referred to SIAC arbitration…"],
+            ["WeChat", 2023, "0.00", "Disputes referred to SIAC arbitration…"],
+            ["WeChat", 2024, "0.00", "Disputes referred to SIAC arbitration…"],
+            ["WeChat", 2025, "0.00", "Disputes referred to SIAC arbitration…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#6B4E9E" },
+          marker: { size: 6, color: "#6B4E9E" },
+          legendgroup: "WeChat",
+          showlegend: true
+        },
+        {
+          name: "Snapchat",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2018, 2019, 2020, 2021, 2022, 2023, 2025],
+          y: [0,0,0,0,0,0,0],
+          customdata: [
+            ["Snapchat", 2018, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2019, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2020, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2021, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2022, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2023, "0.00", "ARBITRATION NOTICE: THESE TERMS CONTAIN AN ARBITRATION CLAUSE…"],
+            ["Snapchat", 2025, "0.00", "ARBITRATION CLAUSE referenced in updated Terms…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#8B6F47" },
+          marker: { size: 6, color: "#8B6F47" },
+          legendgroup: "Snapchat",
+          showlegend: true
+        },
+        {
+          name: "X (Formerly Twitter)",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          y: [0,0,0,0,0,0,0,1.67,1.67,1.67],
+          customdata: [
+            ["X (Formerly Twitter)", 2016, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2017, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2018, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2019, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2020, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2021, "0.00", "Arbitration notice in Terms; class action waiver language…"],
+            ["X (Formerly Twitter)", 2022, "0.00", "Complaints via JAMS and Privacy Shield arbitration…"],
+            ["X (Formerly Twitter)", 2023, "1.67", "Binding arbitration under Rules of Arbitration of the American Arbitration Association…"],
+            ["X (Formerly Twitter)", 2024, "1.67", "Binding arbitration under Rules of Arbitration of the American Arbitration Association…"],
+            ["X (Formerly Twitter)", 2025, "1.67", "Binding arbitration under Rules of Arbitration of the American Arbitration Association…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#BC2037" },
+          marker: { size: 6, color: "#BC2037" },
+          legendgroup: "X (Formerly Twitter)",
+          showlegend: true
+        },
+        {
+          name: "Reddit",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2025],
+          y: [1.67,1.67,1.67,1.67,1.67,1.67,1.67,1.67],
+          customdata: [
+            ["Reddit", 2016, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2017, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2018, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2019, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2020, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2021, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2022, "1.67", "Complaints via JAMS; binding arbitration under Privacy Shield principles…"],
+            ["Reddit", 2025, "1.67", "Invoking binding arbitration in certain Data Privacy Framework disputes…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#E07A5F" },
+          marker: { size: 6, color: "#E07A5F" },
+          legendgroup: "Reddit",
+          showlegend: true
+        },
+        {
+          name: "Pinterest",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          y: [1.67,1.67,1.25,1.25,1.25,1.25,0.0,0.0,1.67],
+          customdata: [
+            ["Pinterest", 2017, "1.67", "Binding arbitration by the American Arbitration Association…"],
+            ["Pinterest", 2018, "1.67", "Binding arbitration by the American Arbitration Association…"],
+            ["Pinterest", 2019, "1.25", "Binding arbitration or small claims court for qualifying claims…"],
+            ["Pinterest", 2020, "1.25", "Binding arbitration or small claims court for qualifying claims…"],
+            ["Pinterest", 2021, "1.25", "Binding arbitration or small claims court for qualifying claims…"],
+            ["Pinterest", 2022, "1.25", "Binding arbitration or small claims court for qualifying claims…"],
+            ["Pinterest", 2023, "0.00", "Section titled “11. Arbitration” with more limited scope…"],
+            ["Pinterest", 2024, "0.00", "Arbitration section tailored for EEA / UK consumers…"],
+            ["Pinterest", 2025, "1.67", "Data Privacy Framework arbitration for certain compliance complaints…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#E8895F" },
+          marker: { size: 6, color: "#E8895F" },
+          legendgroup: "Pinterest",
+          showlegend: true
+        },
+        {
+          name: "Discord",
+          type: "scatter",
+          mode: "lines+markers",
+          x: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          y: [3.33,3.33,3.33,1.67,1.67,1.67,1.67],
+          customdata: [
+            ["Discord", 2019, "3.33", "IMPORTANT NOTICE: THESE TERMS OF SERVICE CONTAIN A BINDING ARBITRATION PROVISION AND CLASS ACTION WAIVER…"],
+            ["Discord", 2020, "3.33", "IMPORTANT NOTICE: THESE TERMS OF SERVICE CONTAIN A BINDING ARBITRATION PROVISION AND CLASS ACTION WAIVER…"],
+            ["Discord", 2021, "3.33", "IMPORTANT NOTICE: THESE TERMS OF SERVICE CONTAIN A BINDING ARBITRATION PROVISION AND CLASS ACTION WAIVER…"],
+            ["Discord", 2022, "1.67", "Complaints free of charge to JAMS; possible binding arbitration under Privacy Shield principles…"],
+            ["Discord", 2023, "1.67", "Complaints free of charge to JAMS; possible binding arbitration under Privacy Shield principles…"],
+            ["Discord", 2024, "1.67", "Complaints free of charge to JAMS; possible binding arbitration under Data Privacy Framework…"],
+            ["Discord", 2025, "1.67", "Complaints free of charge to JAMS; possible binding arbitration under Data Privacy Framework…"]
+          ],
+          hovertemplate:
+            "<b>%{customdata[0]}</b> — %{customdata[1]}<br>" +
+            "Severity: %{customdata[2]}<br><br>" +
+            "<span style='font-size:11px;color:#4B5563;'>%{customdata[3]}</span>" +
+            "<extra></extra>",
+          line: { width: 2, color: "#4DB8AD" },
+          marker: { size: 6, color: "#4DB8AD" },
+          legendgroup: "Discord",
+          showlegend: true
+        }
+      ],
+      layout: {
+        margin: { l: 60, r: 20, t: 10, b: 40 },
+        xaxis: {
+          title: { text: "Year" },
+          dtick: 1,
+          range: [2014.5, 2025.5],
+          type: "linear"
+        },
+        yaxis: {
+          title: { text: "Severity score (0–5)" },
+          range: [0, 5.1],
+          dtick: 1,
+          type: "linear"
+        },
+        legend: {
+          orientation: "h",
+          yanchor: "bottom",
+          y: -0.22,
+          xanchor: "left",
+          x: 0,
+          itemwidth: 40,
+          tracegroupgap: 4
+        },
+        hovermode: "closest",
+        paper_bgcolor: "#ffffff",
+        plot_bgcolor: "#ffffff",
+        autosize: true
+      }
+    };
+
+    Plotly.newPlot("fig", FINAL_FIG.data, FINAL_FIG.layout, {
+      responsive: true,
+      displaylogo: false
+    });
+  </script>
+</body>
+</html>

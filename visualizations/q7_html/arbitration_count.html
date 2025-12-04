@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arbitration Severity Export</title>
+</head>
+<body>
+  <div>
+    <!-- Optional: Plotly config (like your example) -->
+    <script type="text/javascript">
+      window.PlotlyConfig = { MathJaxConfig: 'local' };
+    </script>
+
+    <!-- Plotly CDN (you can use latest or a pinned version) -->
+    <script
+      charset="utf-8"
+      src="https://cdn.plot.ly/plotly-2.35.2.min.js">
+    </script>
+
+    <!-- The Plotly graph container -->
+    <div
+      id="arb-chart-export"
+      class="plotly-graph-div"
+      style="height:100%; width:100%;">
+    </div>
+
+    <!-- Inline data + layout + Plotly.newPlot call -->
+    <script type="text/javascript">
+      window.PLOTLYENV = window.PLOTLYENV || {};
+
+      // === PASTE JSON FROM CONSOLE HERE ===
+      const figure = {"data":[{"type":"bar","x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"y":[46,77,101,130,196,272,312,340,359,462,626],"marker":{"color":["rgb(232, 137, 95)","rgb(230, 131, 96)","rgb(229, 127, 97)","rgb(227, 122, 98)","rgb(223, 110, 100)","rgb(218, 96, 103)","rgb(215, 88, 104)","rgb(214, 83, 104)","rgb(212, 80, 101)","rgb(203, 61, 83)","rgb(188, 32, 55)"],"line":{"color":"#ffffff","width":1}},"hovertemplate":"Year %{x}<br>Policies with arbitration: %{y}<extra></extra>"}],"layout":{"margin":{"l":60,"r":20,"t":10,"b":40},"xaxis":{"title":{"text":"Year"},"dtick":1,"range":[2014.5,2025.5],"type":"linear"},"yaxis":{"title":{"text":"Number of policies with arbitration (all companies)"},"rangemode":"tozero","type":"linear","range":[0,658.9473684210526],"autorange":true},"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"}};
+;
+      // Example shape: { "data": [...], "layout": {...} }
+
+      if (document.getElementById("arb-chart-export")) {
+        Plotly.newPlot(
+          "arb-chart-export",
+          figure.data,
+          figure.layout,
+          { responsive: true }
+        );
+      }
+    </script>
+  </div>
+</body>
+</html>

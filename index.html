@@ -2,141 +2,451 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparency Hub - Social Media Policy Analysis</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <title>Remediation</title>
 </head>
 <body>
-    <header>`
-        <nav>
-            <div id = 'title'>Remediation | Kevin Wrenn</div>
-            <div id = 'buttons'>
-                <div><a href="#inspiration">Inspiration</a></div>
-                <div><a href="#research">Research Findings</a></div>
-                <div><a href="#remediation">Remediation</a></div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div id = 'inspiration'>
-            <div class = 'inspiration-text'>
-                <h1>Inspiration</h1>
-                <p>My paper covers the idea of remastered games. When I was younger, I was given a DS for my 6th birthday. I loved playing Mario Bros., where I would pass the DS around with my Dad. I continued to play these titles, and I loved playing video games to which I started coding on my computer. Although I would love to code video games. I turned to coding little programs for fun. Now, I am CS major. Since I am older now, games that I used to play are being remastered, which now looking back at these titles, I feel nostalgic for them. Thus, that is why I focused on nostalgia and video games because I enjoyed them when I was younger.</p>
-            </div>
-            <div class = 'inspiration-img'>
-                <figure>
-                    <img src="./images/DS Lite Cobalt : Black.jpeg" alt="">
-                    <figcaption>Cobalt DS Lite</figcaption>
-                </figure>
-            </div>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <h1>Transparency Hub Analytics</h1>
+            <p>Comprehensive Analysis of Social Media Platform Policies</p>
         </div>
-        <div id="old-remaster-exs">
-            <div>
-                <figure>
-                    <img src="./images/Bowers inside story.jpg" alt="">
-                    <figure></figure>
-                </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="./images/Pokemon_Platinum.png" alt="">
-                    <figure></figure>
-                </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="./images/Mario Party DS.jpg" alt="">
-                    <figure></figure>
-                </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="./images/Mario Kart DS.jpeg" alt="">
-                    <figure></figure>
-                </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="./images/NSMBDS.jpg" alt="">
-                    <figure></figure>
-                </figure>
-            </div>
+    </div>
+
+    <!-- TOC Nav – points by question -->
+    <div class="nav-container">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Navigation</span>
+            <button class="hamburger-menu" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div id="research">
-            <div id = 'research-text'>
-                <h1>Research Findings</h1>
-                <p>After researching, I understood that a person may want to play remastered titles to reconnect with their past self. Their past self thus played these older titles when they were first released, and wanted to relive that experiences.</p>
-            </div>
-            <div id = 'research-imgs'>
-                <div>
-                    <figure>
-                        <img class = "n64" src="./images/Mario 64 N64.jpg" alt="">
-                        <figure></figure>
-                    </figure>
-                </div>
-                <div>
-                    <figure>
-                        <img class = "ds" src="./images/Mario 64 DS.jpg" alt="">
-                        <figure></figure>
-                    </figure>
-                </div>
-                <div>
-                    <figure>
-                        <img class = "switch" src="./images/SM3DAS.jpg" alt="">
-                        <figure></figure>
-                    </figure>
-                </div>
-            </div>
-            <div id="counter">
-                    <div class="quote">
-                        <h1>Quote 1</h1>
-                        <p>“we’re less interested in the gaming experience than we are in recreating the memories associated with them”</p>
+        <div class="nav" id="nav-menu">
+            <a class="nav-item active" href="#overview">Overview</a>
+            <a class="nav-item" href="#q1">Q1: Length & Complexity</a>
+            <a class="nav-item" href="#q2">Q2: Explicit Opt-in & Opt-out</a>
+            <a class="nav-item" href="#q3">Q3: Most Frequent Terms</a>
+            <a class="nav-item" href="#q4">Q4: Political Influences</a>
+            <a class="nav-item" href="#q5">Q5: Policy Complexity</a>
+            <a class="nav-item" href="#q6">Q6: Platform Comparison</a>
+            <a class="nav-item" href="#q7">Q7: Arbitration</a>
+            <a class="nav-item" href="#q8">Q8: Class Action</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Overview -->
+        <section id="overview" class="section">
+            <h2>Project Overview</h2>
+            <p>
+                This dashboard presents a comprehensive analysis of social media platform policies, examining
+                <span class="highlight">readability</span>,
+                <span class="highlight">complexity</span>, and differences between
+                <span class="highlight">Old School</span> and
+                <span class="highlight">New School</span> platforms.
+            </p>
+
+            <div class="overview-grid">
+                <a href="#q1">
+                    <div class="overview-card">
+                        <h3>Q1: Length & Complexity Over Time<span class="badge">Interactive</span></h3>
+                        <p>Word count, sentence length, and readability metrics to show how privacy policies have grown in length and complexity over the years.</p>
                     </div>
-                    <div id="counter-text">
-                        <h1>The Counterargument</h1>
-                        <p>I noticed that many people commented that these remastered games are poisoning the gaming industry as it is a repeat of reusing older gameplay and mechanics. However, if the main reason for some is to enjoy their experience and reconnect with their past self, I believe it is ok if there is a little repetition.</p>
+                </a>
+                <a href="#q2">
+                    <div class="overview-card">
+                        <h3>Q2: Explicit Opt-in vs Opt-out<span class="badge">Consent Design</span></h3>
+                        <p>How often companies use explicit opt-in versus opt-out language, and how these consent choices differ across organizations and over time.</p>
                     </div>
-                    <div class="quote">
-                        <h1>Quote 2</h1>
-                        <p>“we’ve reached the point where gamers will even fund creators to indulge their nostalgia for them”</p>
+                </a>
+                <a href="#q3">
+                    <div class="overview-card">
+                        <h3>Q3: Most Frequent Terms & Templates<span class="badge">Text Mining</span></h3>
+                        <p>“Most common terms and phrases in privacy policies, plus evidence of “copy-paste” or shared template language across organizations in the same group.</p>
                     </div>
-                </div>
-                <div id = 'counter-imgs'>
-                    <div>
-                        <figure>
-                            <img class = "gamecube" src="./images/Luigi Mansion Gamecube.jpeg" alt="">
-                            <figure></figure>
-                        </figure>
+                </a>
+                <a href="#q4">
+                    <div class="overview-card">
+                        <h3>Q4: Political Influences on Policy<span class="badge">Election Impact</span></h3>
+                        <p>How major political events (2016 and 2024 elections) align with changes in privacy policies, and which companies showed the largest shifts before and after these moments.</p>
                     </div>
-                    <div>
-                        <figure>
-                            <img class = "threeDS" src="./images/Luigi Mansion 3DS.jpeg" alt="">
-                            <figure></figure>
-                        </figure>
+                </a>
+                <a href="#q5">
+                    <div class="overview-card">
+                        <h3>Q5: Spiciest Policy Language<span class="badge">Superlatives</span></h3>
+                        <p>Surprising, extreme, or especially user-unfriendly (and user-friendly) phrases—highlighting the “spiciest” clauses and standout pro-user protections.</p>
                     </div>
-                </div>
+                </a>
+                <a href="#q6">
+                    <div class="overview-card">
+                        <h3>Q6: Old vs New School Platforms<span class="badge">Cohort Focus</span></h3>
+                        <p>Comparing “old school” vs. “new school” platforms (e.g., Tumblr vs. TikTok) on document types, clause prevalence, and how their privacy policies have evolved.</p>
+                    </div>
+                </a>
+                <a href="#q7">
+                    <div class="overview-card">
+                        <h3>Q7: Mandatory Arbitration Clauses<span class="badge">Dispute Resolution</span></h3>
+                        <p>Which policies include mandatory arbitration, what those clauses entail, and a severity scale comparing how restrictive different companies’ arbitration terms are.</p>
+                    </div>
+                </a>
+                <a href="#q8">
+                    <div class="overview-card">
+                        <h3>Q8: Class Action Prohibitions<span class="badge">Litigation Limits</span></h3>
+                        <p>Tracking the adoption of class action waivers over time (e.g., 2010–present), and how strongly different policies restrict users’ ability to join class lawsuits.</p>
+                    </div>
+                </a>
             </div>
-            <div id = 'remediation'>
-                <div class = 'remediation-text'>
-                    <h1>Remediation</h1>
-                    <p>I decided to do a website for my remediation as I wanted to further my skills in web development, and hence web development is a form of digital remediation. Thus, this website allowed for me to concisely adhere my writing with my coding knowledge, creating a beautiful project for the viewer.</p>
-                </div>
-            </div>
-            <div id = "remediation-exs">
-                <div>
-                    <figure>
-                        <img class = "tea-cozy" src="./images/Tea-Cozy-Full.png" alt="">
-                        <a href="./external files/tea cozy/index.html"><figcaption>Tea Cozy</figcaption></a>
-                    </figure>
-                </div>
-                <div>
-                    <figure>
-                        <img class = "eng-proj" src="./images/First-Eng-Project.png" alt="">
-                        <a href="./external files/eng_proj/index.html"><figcaption>Rough English Project</figcaption></a>
-                    </figure>
-                </div>
-            </div>
-    </main>
+        </section>
+
+        <!-- Invisible anchors for question starts (no visible "section starters") -->
+        <div id="q1"></div>
+
+        <!-- Q1 SLIDES -->
+        <section id="q1_complexity" class="section section-viz">
+            <h2>Q1 · Policy Complexity Over Time</h2>
+            <p>How policy complexity scores change across time and platforms.</p>
+            <h3 class="subheading">Complexity Over Time</h3>
+            <iframe src="visualizations/q1_html/q1_complexity_over_time.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q1_grade" class="section section-viz">
+            <h2>Q1 · Grade Level by Company</h2>
+            <p>Estimated grade level required to understand policy text for each platform.</p>
+            <h3 class="subheading">Grade Level Analysis</h3>
+            <iframe src="visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q1_length_vs_readability" class="section section-viz">
+            <h2>Q1 · Length vs Readability</h2>
+            <p>Do longer policies tend to be harder to read? This chart shows their relationship.</p>
+            <h3 class="subheading">Length vs Readability Correlation</h3>
+            <iframe src="visualizations/q1_html/q1_length_vs_readability.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q1_word_count" class="section section-viz">
+            <h2>Q1 · Word Count Evolution</h2>
+            <p>How policy lengths have expanded or contracted across years and platforms.</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q1_html/q1_word_count_over_time.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <div id="q2"></div>
+
+        <section id="q2_control_freq_heatmap" class="section section-viz">
+            <h2>Q2 · Control Frequency Heatmap</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_control_frequency_heatmap.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_opt_in_pattern" class="section section-viz">
+            <h2>Q2 · Opt-in Language Patterns</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_opt_in_pattern_breakdown.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_opt_in_ratio_company" class="section section-viz">
+            <h2>Q2 · Opt-in Ratio</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_opt_in_ratio_time" class="section section-viz">
+            <h2>Q2 · Opt-in Ratio</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_opt_in_ratio_over_time.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_opt_in_vs_opt_out" class="section section-viz">
+            <h2>Q2 · Explicit Opt-in and Opt-out Language</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_opt_in_vs_opt_out_by_company.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_opt_out_pattern" class="section section-viz">
+            <h2>Q2 · Opt-out Pattern</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_opt_out_pattern_breakdown.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q2_radar" class="section section-viz">
+            <h2>Q2 · Privacy Control Radar</h2>
+            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q2_html/q2_radar_chart.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+
+        <div id="q3"></div>
+
+        <section id="q3_most_common" class="section section-viz">
+            <h2>Q3 · Most Frequent Words</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q3_html/most_common_terms.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q3_shared_phrases" class="section section-viz">
+            <h2>Q3 · Top Bigrams</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q3_html/shared_phrases.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q3_similarity_heatmap" class="section section-viz">
+            <h2>Q3 · Textual Similarity Heatmap</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q3_html/similarity_heatmap.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <div id="q4"></div>
+        
+        <section id="q4_comp_timeseries" class="section section-viz">
+            <h2>Q4 · Policy Change Over Time</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q4_html/company_timeseries.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q4_group_dist" class="section section-viz">
+            <h2>Q4 · Policy Change by Type</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q4_html/group_distributions.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q4_top_changes" class="section section-viz">
+            <h2>Q4 · Top Companies</h2>
+            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
+            <h3 class="subheading">Word Count Over Time</h3>
+            <iframe src="visualizations/q4_html/top_changes.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <!-- Q5 anchor -->
+        <div id="q5"></div>
+
+        <!-- Q5 SLIDES -->
+        <section id="q5_quadrant" class="section section-viz">
+            <h2>Q5 · Policy Spice Quadrant</h2>
+            <p>Where platforms fall along User Rights vs Restrictive language dimensions.</p>
+            <h3 class="subheading">Spice Quadrant Analysis</h3>
+            <iframe src="visualizations/q5_html/spice_quadrant.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q5_clause_prev" class="section section-viz">
+            <h2>Q5 · Clause Prevalence</h2>
+            <p>How often key clause types appear across platforms and cohorts.</p>
+            <h3 class="subheading">Clause Prevalence Across Platforms</h3>
+            <iframe src="visualizations/q5_html/clause_prevalence.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q5_spice_trends" class="section section-viz">
+            <h2>Q5 · Spice Adoption Trends</h2>
+            <p>Trends in the adoption of “spicy” (more restrictive) language over time.</p>
+            <h3 class="subheading">Spice Adoption Delta</h3>
+            <iframe src="visualizations/q5_html/spice_adoption_delta.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <!-- Q6 anchor -->
+        <div id="q6"></div>
+
+        <!-- Q6 SLIDES -->
+        <section id="q6_doc_type_mix" class="section section-viz">
+            <h2>Q6 · Document Type Distribution</h2>
+            <p>How different cohorts balance Terms of Service, Privacy, and Guidelines documents.</p>
+            <h3 class="subheading">Doc Type Mix by Cohort</h3>
+            <iframe src="visualizations/q6_html/doc_type_mix.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q6_phrase_usage" class="section section-viz">
+            <h2>Q6 · Phrase Usage Comparison</h2>
+            <p>Key phrase usage rates between Old School and New School platforms.</p>
+            <h3 class="subheading">Phrase Usage Comparison</h3>
+            <iframe src="visualizations/q6_html/phrase_rates_group.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q6_gap" class="section section-viz">
+            <h2>Q6 · Policy Gap Analysis</h2>
+            <p>Where New School and Old School platforms diverge most in their policies.</p>
+            <h3 class="subheading">Platform Policy Gap</h3>
+            <iframe src="visualizations/q6_html/phrase_gap.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q6_length_violin" class="section section-viz">
+            <h2>Q6 · Policy Length Distribution</h2>
+            <p>Distribution of policy lengths across platform cohorts.</p>
+            <h3 class="subheading">Length Distribution (Violin)</h3>
+            <iframe src="visualizations/q6_html/length_violin.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <section id="q6_length_time" class="section section-viz">
+            <h2>Q6 · Length Over Time</h2>
+            <p>How policy lengths have changed over time across cohorts.</p>
+            <h3 class="subheading">Length Evolution Over Time</h3>
+            <iframe src="visualizations/q6_html/length_over_time.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <!-- Q7 anchor -->
+        <div id="q7"></div>
+
+        <!-- Q7 SLIDE -->
+        <section id="q7_arbitration_count" class="section section-viz">
+            <h2>Q7 · Arbitration Clauses</h2>
+            <p>Severity and presence of arbitration clauses across platforms.</p>
+            <h3 class="subheading">Arbitration Analysis</h3>
+            <iframe src="visualizations/q7_html/arbitration_count.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <!-- Q7 SLIDE -->
+        <section id="q7_arbitration_fig" class="section section-viz">
+            <h2>Q7 · Arbitration Clauses</h2>
+            <p>Severity and presence of arbitration clauses across platforms.</p>
+            <h3 class="subheading">Arbitration Analysis</h3>
+            <iframe src="visualizations/q7_html/arbitration_figure.html?v=3" class="visualization-frame"></iframe>
+        </section>
+
+        <!-- Q8 anchor -->
+        <div id="q8"></div>
+
+        <!-- Q8 SLIDE -->
+        <section id="q8_class_action" class="section section-viz">
+            <h2>Q8 · Class Action Analysis</h2>
+            <p>Class action waiver patterns and changes over time.</p>
+            <h3 class="subheading">Class Action Analysis</h3>
+            <iframe src="visualizations/q8_html/index.html?v=3" class="visualization-frame"></iframe>
+        </section>
+    </div>
+
+    <!-- Floating next-slide chevron -->
+    <button id="next-slide-btn" class="next-slide-btn">⌄</button>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Berkman Klein Center for Internet & Society - Transparency Hub Project</p>
+        <p>DS594 Data Visualization • Harvard University</p>
+    </div>
+
+    <script>
+    // All visualization "slides"
+    const slides = Array.from(document.querySelectorAll('.section-viz'));
+    const overview = document.getElementById('overview');
+    const nextBtn = document.getElementById('next-slide-btn');
+
+    // Next button behavior: always go to the next slide below the viewport;
+    // if none, go back to overview
+    nextBtn.addEventListener('click', () => {
+        const threshold = 100; // px below top of viewport to consider "next"
+        let target = null;
+
+        for (const slide of slides) {
+            const rect = slide.getBoundingClientRect();
+            if (rect.top > threshold) {
+                target = slide;
+                break;
+            }
+        }
+
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // we’re past the last slide → go back to overview
+            overview.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    // Scroll spy – highlight nav based on which viz/overview is visible
+    const navLinks = document.querySelectorAll('.nav-item');
+    const spySections = document.querySelectorAll('#overview, .section-viz');
+
+    function questionKeyForSection(id) {
+        if (id === 'overview') return 'overview';
+        if (id.startsWith('q1_')) return 'q1';
+        if (id.startsWith('q2_')) return 'q2';
+        if (id.startsWith('q3_')) return 'q3';
+        if (id.startsWith('q4_')) return 'q4';
+        if (id.startsWith('q5_')) return 'q5';
+        if (id.startsWith('q6_')) return 'q6';
+        if (id.startsWith('q7_')) return 'q7';
+        if (id.startsWith('q8_')) return 'q8';
+        return null;
+    }
+
+    const spyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const key = questionKeyForSection(entry.target.id);
+            if (!key) return;
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href'); // e.g., "#q1"
+                const navKey = href.replace('#', '');
+                const isActive =
+                    (key === 'overview' && navKey === 'overview') ||
+                    (key !== 'overview' && navKey === key);
+
+                link.classList.toggle('active', isActive);
+            });
+        });
+    }, { threshold: 0.4 });
+
+    spySections.forEach(sec => spyObserver.observe(sec));
+
+    // Mobile hamburger menu functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('nav-open');
+        hamburgerBtn.classList.toggle('hamburger-open');
+    });
+
+    // Close mobile menu when a nav item is clicked
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            navMenu.classList.remove('nav-open');
+            hamburgerBtn.classList.remove('hamburger-open');
+        });
+    });
+
+    // Overview card fade-in
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    document.querySelectorAll('.overview-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        cardObserver.observe(card);
+    });
+
+    // Fade-in for iframes when loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const iframes = document.querySelectorAll('.visualization-frame');
+        iframes.forEach(iframe => {
+            iframe.style.opacity = '0';
+            iframe.style.transition = 'opacity 0.4s ease';
+            iframe.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    });
+</script>
 </body>
 </html>
