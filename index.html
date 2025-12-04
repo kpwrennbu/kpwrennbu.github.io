@@ -6,6 +6,22 @@
     <title>Transparency Hub - Social Media Policy Analysis</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Check if user is on mobile device and redirect to phone view
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.innerWidth <= 768;
+        }
+        
+        // Check if desktop view is explicitly requested
+        const urlParams = new URLSearchParams(window.location.search);
+        const forceDesktop = urlParams.get('desktop') === 'true';
+        
+        // Redirect mobile users to phone view (unless they explicitly want desktop view)
+        if (isMobileDevice() && !forceDesktop && !document.referrer.includes('phone-view.html')) {
+            window.location.href = 'phone-view.html';
+        }
+    </script>
 </head>
 <body>
     <!-- Mobile-specific sections (hidden on desktop) -->
