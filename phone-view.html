@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone View - Social Media Policy Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .phone-view-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .phone-view-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .phone-view-header h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .project-description h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .phone-viz-section {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .phone-viz-section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .phone-viz-frame {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .auto-scroll-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .auto-scroll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .back-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-view-container">
+        <div class="project-description">
+            <a href="index.html" class="back-btn">← Back to Full Site</a>
+            <h2>Social Media Policy Analysis</h2>
+            <p>This project analyzes the evolution of social media platform policies, examining changes in transparency, user controls, and regulatory compliance over time. Our comprehensive dataset spans multiple years and platforms, revealing trends in policy complexity, readability, and user empowerment.</p>
+            <p>The visualizations below highlight key findings optimized for mobile viewing, focusing on the most impactful insights from our analysis.</p>
+        </div>
+        
+        <div class="phone-view-header">
+            <h1>Mobile-Optimized Analysis</h1>
+        </div>
+        
+        <div class="phone-viz-section">
+            <h3>Q1 · Grade Level by Company</h3>
+            <iframe src="visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="phone-viz-frame"></iframe>
+        </div>
+        
+        <div class="phone-viz-section">
+            <h3>Q2 · Opt-in Ratio by Company</h3>
+            <iframe src="visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="phone-viz-frame"></iframe>
+        </div>
+        
+        <div class="phone-viz-section">
+            <h3>Q6 · Document Type Distribution</h3>
+            <iframe src="visualizations/q6_html/doc_type_mix.html?v=3" class="phone-viz-frame"></iframe>
+        </div>
+        
+        <div class="phone-viz-section">
+            <h3>Q6 · Phrase Usage Comparison</h3>
+            <iframe src="visualizations/q6_html/phrase_rates_group.html?v=3" class="phone-viz-frame"></iframe>
+        </div>
+        
+        <div class="phone-viz-section">
+            <h3>Q7 · Arbitration Clauses</h3>
+            <iframe src="visualizations/q7_html/arbitration_count.html?v=3" class="phone-viz-frame"></iframe>
+        </div>
+        
+        <button class="auto-scroll-btn" onclick="autoScroll()">Auto Scroll</button>
+    </div>
+    
+    <script>
+        let scrolling = false;
+        let scrollInterval;
+        
+        function autoScroll() {
+            const btn = document.querySelector('.auto-scroll-btn');
+            
+            if (!scrolling) {
+                // Start auto scrolling
+                scrolling = true;
+                btn.textContent = 'Stop Scroll';
+                btn.style.background = 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)';
+                
+                scrollInterval = setInterval(() => {
+                    window.scrollBy(0, 2);
+                    
+                    // Stop when reaching bottom
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                        stopAutoScroll();
+                    }
+                }, 50);
+            } else {
+                // Stop auto scrolling
+                stopAutoScroll();
+            }
+        }
+        
+        function stopAutoScroll() {
+            scrolling = false;
+            const btn = document.querySelector('.auto-scroll-btn');
+            btn.textContent = 'Auto Scroll';
+            btn.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
+            clearInterval(scrollInterval);
+        }
+        
+        // Stop auto scroll when user manually scrolls
+        let scrollTimeout;
+        window.addEventListener('wheel', () => {
+            if (scrolling) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    stopAutoScroll();
+                }, 100);
+            }
+        });
+        
+        window.addEventListener('touchmove', () => {
+            if (scrolling) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    stopAutoScroll();
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
