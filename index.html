@@ -4,8 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transparency Hub - Social Media Policy Analysis</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        :root {
+            --spark-teal: #00A896;
+            --harvard-red: #BC2037;
+            --state-blue: #587C8D;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--spark-teal) 0%, var(--state-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* TOC Nav – question-level links */
+        .nav-container {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.5rem 1rem;
+            gap: 0.25rem;
+        }
+
+        .nav-item {
+            background: linear-gradient(135deg, var(--spark-teal) 0%, var(--state-blue) 100%);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+            border: none;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+            background: linear-gradient(135deg, var(--harvard-red) 0%, var(--spark-teal) 100%);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, var(--harvard-red) 0%, var(--state-blue) 100%);
+            transform: translateY(-1px);
+        }
+
+        /* Content */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section.section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--spark-teal);
+            scroll-margin-top: 90px;
+        }
+
+        .section h2 {
+            color: var(--dark-gray);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--spark-teal);
+        }
+
+        .section p {
+            color: var(--state-blue);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        h3.subheading {
+            color: var(--state-blue);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .visualization-frame {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--light-gray);
+        }
+
+        /* Make viz slides fill most of the screen */
+/* REMOVE fullscreen slide behavior */
+.section-viz {
+    display: block;
+    min-height: auto;
+}
+
+.section-viz .visualization-frame {
+    height: 700px;
+    min-height: unset;
+    flex: unset;
+}
+
+
+
+        /* Overview cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--spark-teal);
+            transition: transform 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .overview-card h3 {
+            color: var(--harvard-red);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Floating next chevron button */
+        .next-slide-btn {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--spark-teal) 0%, var(--state-blue) 100%);
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .next-slide-btn:hover {
+            background: linear-gradient(135deg, var(--harvard-red) 0%, var(--spark-teal) 100%);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            section.section {
+                padding: 1.5rem;
+            }
+
+            .section-viz {
+                min-height: calc(100vh - 140px);
+            }
+
+            .section-viz .visualization-frame {
+                min-height: 320px;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--spark-teal) 0%, var(--harvard-red) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--harvard-red);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -18,15 +295,7 @@
 
     <!-- TOC Nav – points by question -->
     <div class="nav-container">
-        <div class="mobile-menu-header">
-            <span class="mobile-menu-title">Navigation</span>
-            <button class="hamburger-menu" id="hamburger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <div class="nav" id="nav-menu">
+        <div class="nav">
             <a class="nav-item active" href="#overview">Overview</a>
             <a class="nav-item" href="#q1">Q1: Length & Complexity</a>
             <a class="nav-item" href="#q2">Q2: Explicit Opt-in & Opt-out</a>
@@ -109,81 +378,60 @@
         <!-- Q1 SLIDES -->
         <section id="q1_complexity" class="section section-viz">
             <h2>Q1 · Policy Complexity Over Time</h2>
-            <p>How policy complexity scores change across time and platforms.</p>
+            <p>This visualization tracks how the complexity of privacy policies has evolved from 2016 to 2025, using readability metrics like Flesch-Kincaid Grade Level. The chart reveals a concerning trend: policies have become significantly harder to read over time, with most platforms now requiring college-level reading skills. Notice how regulatory events like GDPR (2018) and CCPA (2020) correlate with spikes in complexity, as companies added legal compliance language that made policies less accessible to average users.</p>
             <h3 class="subheading">Complexity Over Time</h3>
-            <iframe src="visualizations/q1_html/q1_complexity_over_time.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q1_html/q1_complexity_over_time.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q1_grade" class="section section-viz">
             <h2>Q1 · Grade Level by Company</h2>
-            <p>Estimated grade level required to understand policy text for each platform.</p>
+            <p>This chart compares the reading difficulty across major social media platforms, showing the estimated U.S. grade level needed to comprehend each platform's privacy policy. Most platforms require 12th grade to college-level reading skills, making them inaccessible to many users. Platforms like LinkedIn and Facebook consistently rank among the most complex, while newer platforms like TikTok show slightly more readable policies. The color coding helps identify which platforms are prioritizing user accessibility versus legal complexity.</p>
             <h3 class="subheading">Grade Level Analysis</h3>
-            <iframe src="visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q1_html/q1_grade_level_by_company.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q1_length_vs_readability" class="section section-viz">
             <h2>Q1 · Length vs Readability</h2>
-            <p>Do longer policies tend to be harder to read? This chart shows their relationship.</p>
+            <p>This scatter plot explores whether longer privacy policies are inherently harder to understand. Each point represents a policy document, with word count on the x-axis and reading difficulty on the y-axis. The data reveals a moderate positive correlation: longer policies do tend to be more complex, but there are notable exceptions. Some platforms manage to create comprehensive yet readable policies, while others pack complexity into shorter documents. The trend line and color coding help identify outliers and best practices for balancing thoroughness with accessibility.</p>
             <h3 class="subheading">Length vs Readability Correlation</h3>
-            <iframe src="visualizations/q1_html/q1_length_vs_readability.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q1_html/q1_length_vs_readability.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q1_word_count" class="section section-viz">
             <h2>Q1 · Word Count Evolution</h2>
-            <p>How policy lengths have expanded or contracted across years and platforms.</p>
+            <p>This temporal analysis shows the dramatic growth in privacy policy length over nearly a decade. Most platforms have doubled or tripled their policy word counts since 2016, driven by regulatory requirements, feature expansion, and legal risk management. The interactive timeline allows you to see how specific events (like GDPR implementation) triggered policy expansions across the industry. Some platforms show steady growth, while others exhibit sudden jumps during regulatory periods, revealing different approaches to policy management and user communication.</p>
             <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q1_html/q1_word_count_over_time.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q1_html/q1_word_count_over_time.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <div id="q2"></div>
 
-        <section id="q2_control_freq_heatmap" class="section section-viz">
-            <h2>Q2 · Control Frequency Heatmap</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_control_frequency_heatmap.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q2_opt_in_pattern" class="section section-viz">
-            <h2>Q2 · Opt-in Language Patterns</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_opt_in_pattern_breakdown.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
         <section id="q2_opt_in_ratio_company" class="section section-viz">
-            <h2>Q2 · Opt-in Ratio</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q2 · Opt-in Ratio by Company</h2>
+            <p>This chart compares the opt-in to opt-out language ratio across different social media platforms, revealing which companies prioritize explicit user consent versus default permissions. Companies with higher ratios use more opt-in language, giving users clearer choices about data collection. The visualization helps identify which platforms follow privacy-by-design principles versus those that rely on user inaction for data collection permissions.</p>
+            <h3 class="subheading">Company-by-Company Opt-in Analysis</h3>
+            <iframe src="../visualizations/q2_html/q2_opt_in_ratio_by_company.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q2_opt_in_ratio_time" class="section section-viz">
-            <h2>Q2 · Opt-in Ratio</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_opt_in_ratio_over_time.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q2 · Opt-in Ratio Over Time</h2>
+            <p>This temporal analysis shows how the balance between opt-in and opt-out language has shifted across the industry from 2016 to 2025. The timeline reveals key inflection points where regulatory pressure (especially GDPR in 2018) drove platforms to adopt more explicit consent language. Notice how the overall trend moves toward higher opt-in ratios, indicating growing emphasis on user choice and transparency in data collection practices.</p>
+            <h3 class="subheading">Temporal Opt-in Trends</h3>
+            <iframe src="../visualizations/q2_html/q2_opt_in_ratio_over_time.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q2_opt_in_vs_opt_out" class="section section-viz">
             <h2>Q2 · Explicit Opt-in and Opt-out Language</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_opt_in_vs_opt_out_by_company.html?v=3" class="visualization-frame"></iframe>
-        </section>
-
-        <section id="q2_opt_out_pattern" class="section section-viz">
-            <h2>Q2 · Opt-out Pattern</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_opt_out_pattern_breakdown.html?v=3" class="visualization-frame"></iframe>
+            <p>This side-by-side comparison directly contrasts how platforms present consent choices to users. The visualization breaks down the specific frequency of clear opt-in language ("you can choose to...") versus opt-out mechanisms ("you may disable..."). This analysis reveals the user experience design philosophy of each platform - whether they make data collection the default or require active user participation in data sharing decisions.</p>
+            <h3 class="subheading">Direct Consent Language Comparison</h3>
+            <iframe src="../visualizations/q2_html/q2_opt_in_vs_opt_out_by_company.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q2_radar" class="section section-viz">
             <h2>Q2 · Privacy Control Radar</h2>
-            <p>How often do companies provide explicit opt-in vs. opt-out language?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q2_html/q2_radar_chart.html?v=3" class="visualization-frame"></iframe>
+            <p>This radar chart provides a multidimensional view of each platform's privacy control offerings across different categories like data access, deletion rights, consent granularity, and transparency measures. The larger the area covered by a platform's shape, the more comprehensive their privacy controls. This visualization makes it easy to compare platforms holistically and identify leaders in user privacy empowerment versus those with more limited control options.</p>
+            <h3 class="subheading">Multidimensional Privacy Control Assessment</h3>
+            <iframe src="../visualizations/q2_html/q2_radar_chart.html?v=3" class="visualization-frame"></iframe>
         </section>
 
 
@@ -191,46 +439,46 @@
 
         <section id="q3_most_common" class="section section-viz">
             <h2>Q3 · Most Frequent Words</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q3_html/most_common_terms.html?v=3" class="visualization-frame"></iframe>
+            <p>This word frequency analysis reveals the most common single words across all privacy policies, terms of service, and community guidelines from major social media platforms. The horizontal bar chart displays the top 20 most frequent terms, with "Services," "Use," and "Terms" appearing most often across documents. The consistent appearance of legal and procedural terms like "Agreement," "Rights," and "Account" reflects the standardized nature of platform governance documents. This visualization provides insight into the core vocabulary that shapes how platforms communicate policies to users.</p>
+            <h3 class="subheading">Single Word Frequency Analysis</h3>
+            <iframe src="../visualizations/q3_html/most_common_terms.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q3_shared_phrases" class="section section-viz">
-            <h2>Q3 · Top Bigrams</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q3_html/shared_phrases.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q3 · Top Shared Phrases by Application Group</h2>
+            <p>This interactive visualization examines 2-5 word phrases shared within and across three platform categories: Social Networking (Facebook/Meta, LinkedIn, Twitter/X), Video & Streaming (YouTube, TikTok, Snapchat), and Messaging & Communication (WhatsApp, WeChat, Telegram). The chart displays the most frequent phrases for each category across Privacy Policies, Terms of Service, and Guidelines, with section labels on the right identifying each application group. This reveals both industry-specific terminology and common legal language that transcends platform types, with dropdown navigation allowing comparison across different document types.</p>
+            <h3 class="subheading">Multi-Word Phrase Analysis by Platform Category</h3>
+            <iframe src="../visualizations/q3_html/shared_phrases.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q3_similarity_heatmap" class="section section-viz">
             <h2>Q3 · Textual Similarity Heatmap</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q3_html/similarity_heatmap.html?v=3" class="visualization-frame"></iframe>
+            <p>This lower-triangle heatmap visualizes the textual similarity between privacy and terms documents across 9 major platforms using cosine similarity scores. Darker teal colors indicate higher similarity, while lighter shades and white represent lower similarity or unique policy language. The analysis reveals which platform pairs share the most similar policy language—for example, TikTok and Twitter/X show notably high similarity at 0.52, while platforms like Telegram show consistently lower similarity with others, suggesting more distinctive policy approaches. This visualization helps identify patterns of template sharing, corporate family relationships, and platforms with truly original policy frameworks.</p>
+            <h3 class="subheading">Cross-Platform Language Similarity</h3>
+            <iframe src="../visualizations/q3_html/similarity_heatmap.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <div id="q4"></div>
         
         <section id="q4_comp_timeseries" class="section section-viz">
             <h2>Q4 · Policy Change Over Time</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q4_html/company_timeseries.html?v=3" class="visualization-frame"></iframe>
+            <p>This interactive timeline tracks the average magnitude of policy document changes (measured as 1 - cosine similarity) for nine major platforms from 2005 to 2025. The dropdown menu allows highlighting of individual platforms, with the selected platform shown in teal and all others in grey for comparison. The y-axis represents the degree of textual change between consecutive document versions, where higher values indicate more substantial rewrites. The visualization reveals platform-specific patterns in policy evolution—for instance, Facebook/Meta shows consistent policy iteration throughout the 2010s with notable peaks around 2012 and 2024, while other platforms exhibit different update frequencies and intensities. This comparative view helps identify which platforms maintain stable policy language versus those that frequently revise their governance documents. The chart also reveals which companies are reactive (changing policies immediately after events) versus proactive (updating policies in anticipation). Notice the clustering of updates around major political transitions and regulatory deadlines.</p>
+            <h3 class="subheading">Temporal Patterns in Policy Document Evolution</h3>
+            <iframe src="../visualizations/q4_html/company_timeseries.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q4_group_dist" class="section section-viz">
-            <h2>Q4 · Policy Change by Type</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q4_html/group_distributions.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q4 · Policy Change by Platform Type</h2>
+            <p>This box-and-whisker plot compares the distribution of policy change magnitudes across three platform categories—Dating, Social, and Messaging—for elections in 2016, 2020, and 2024. The y-axis shows Δ (delta), representing the difference in average policy change between 180 days after versus 180 days before each election. Positive values indicate increased policy volatility post-election, while negative values suggest greater stability. The visualization reveals whether certain platform categories are more reactive to political changes than others, and there are varying responses across platform types: in 2016, social platforms showed the highest median increase in policy changes, while in 2020 and 2024, patterns shifted with dating platforms showing notable variation. The box plots display median values (center line), quartile ranges (boxes), and outliers (individual points), providing insight into both typical and extreme responses within each category.</p>
+            <h3 class="subheading">Platform Category Response to Election Periods</h3>
+            <iframe src="../visualizations/q4_html/group_distributions.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q4_top_changes" class="section section-viz">
-            <h2>Q4 · Top Companies</h2>
-            <p>What terms/phrases are the most common in terms & conditions among different organizations within the same group?</p>
-            <h3 class="subheading">Word Count Over Time</h3>
-            <iframe src="visualizations/q4_html/top_changes.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q4 · Companies with Biggest Policy Changes</h2>
+            <p>This ranked horizontal bar chart displays the top platforms by average policy change around each election year, with interactive dropdown selection for 2016, 2020, and 2024. Green bars indicate platforms with increased policy modification activity post-election (positive Δ), while red bars show platforms with decreased activity (negative Δ). In 2016, LinkedIn leads with the highest positive change, while platforms like WhatsApp and Bumble show negative values. The 2020 visualization shows Snapchat with the highest increase, and 2024 features varied platforms including "Online Dating & Hot Video Chat" at the top. Notably, 2016 reveals a clear split between platforms that increased policy updates and those that decreased them, in contrast to the more extensive and broadly consistent revisions observed after 2020 and 2024. This analysis identifies which specific platforms exhibited the most significant policy language shifts during critical electoral periods and provides insight into how different election years corresponded with distinct patterns of policy change.</p>
+            <h3 class="subheading">Most Politically Responsive Platforms</h3>
+            <iframe src="../visualizations/q4_html/top_changes.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <!-- Q5 anchor -->
@@ -239,23 +487,23 @@
         <!-- Q5 SLIDES -->
         <section id="q5_quadrant" class="section section-viz">
             <h2>Q5 · Policy Spice Quadrant</h2>
-            <p>Where platforms fall along User Rights vs Restrictive language dimensions.</p>
+            <p>This innovative quadrant analysis maps platforms based on their "spice level" - how user-friendly versus restrictive their policy language is. The x-axis measures restrictive language (arbitration clauses, data collection scope), while the y-axis tracks user-empowering language (control options, transparency commitments). Platforms in the top-left are "User Champions" (high rights, low restrictions), while bottom-right platforms are "Corporate Fortresses" (high restrictions, low user rights). This unique framework helps users quickly identify which platforms prioritize user interests versus corporate protection.</p>
             <h3 class="subheading">Spice Quadrant Analysis</h3>
-            <iframe src="visualizations/q5_html/spice_quadrant.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q5_html/spice_quadrant.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q5_clause_prev" class="section section-viz">
             <h2>Q5 · Clause Prevalence</h2>
             <p>How often key clause types appear across platforms and cohorts.</p>
             <h3 class="subheading">Clause Prevalence Across Platforms</h3>
-            <iframe src="visualizations/q5_html/clause_prevalence.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q5_html/clause_prevalence.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q5_spice_trends" class="section section-viz">
             <h2>Q5 · Spice Adoption Trends</h2>
             <p>Trends in the adoption of “spicy” (more restrictive) language over time.</p>
             <h3 class="subheading">Spice Adoption Delta</h3>
-            <iframe src="visualizations/q5_html/spice_adoption_delta.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q5_html/spice_adoption_delta.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <!-- Q6 anchor -->
@@ -264,37 +512,37 @@
         <!-- Q6 SLIDES -->
         <section id="q6_doc_type_mix" class="section section-viz">
             <h2>Q6 · Document Type Distribution</h2>
-            <p>How different cohorts balance Terms of Service, Privacy, and Guidelines documents.</p>
+            <p>This comparative analysis reveals how "Old School" platforms (pre-2010, like Facebook and Twitter) versus "New School" platforms (post-2010, like TikTok and Discord) structure their policy documentation. The chart shows the relative emphasis each cohort places on different document types: Terms of Service, Privacy Policies, and Community Guidelines. Notice how newer platforms often integrate policies more holistically, while older platforms tend to maintain more traditional, separate document structures. This reflects evolving approaches to user communication and legal organization.</p>
             <h3 class="subheading">Doc Type Mix by Cohort</h3>
-            <iframe src="visualizations/q6_html/doc_type_mix.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q6_html/doc_type_mix.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q6_phrase_usage" class="section section-viz">
             <h2>Q6 · Phrase Usage Comparison</h2>
-            <p>Key phrase usage rates between Old School and New School platforms.</p>
-            <h3 class="subheading">Phrase Usage Comparison</h3>
-            <iframe src="visualizations/q6_html/phrase_rates_group.html?v=3" class="visualization-frame"></iframe>
+            <p>This comparative analysis examines how frequently specific key phrases appear in Old School versus New School platform policies. The chart reveals generational differences in policy language - older platforms may use more traditional legal terminology, while newer platforms might adopt more user-friendly or tech-forward language. Significant differences in phrase usage rates can indicate evolving industry standards and changing approaches to user communication.</p>
+            <h3 class="subheading">Generational Language Differences</h3>
+            <iframe src="../visualizations/q6_html/phrase_rates_group.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q6_gap" class="section section-viz">
             <h2>Q6 · Policy Gap Analysis</h2>
-            <p>Where New School and Old School platforms diverge most in their policies.</p>
-            <h3 class="subheading">Platform Policy Gap</h3>
-            <iframe src="visualizations/q6_html/phrase_gap.html?v=3" class="visualization-frame"></iframe>
+            <p>This gap analysis pinpoints the specific areas where Old School and New School platforms differ most dramatically in their policy approaches. Large gaps indicate fundamental philosophical differences between platform generations - whether in user rights, data collection practices, content moderation, or legal protections. The visualization helps identify where the platform industry has evolved most significantly and where legacy approaches persist.</p>
+            <h3 class="subheading">Biggest Generational Policy Differences</h3>
+            <iframe src="../visualizations/q6_html/phrase_gap.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q6_length_violin" class="section section-viz">
             <h2>Q6 · Policy Length Distribution</h2>
-            <p>Distribution of policy lengths across platform cohorts.</p>
-            <h3 class="subheading">Length Distribution (Violin)</h3>
-            <iframe src="visualizations/q6_html/length_violin.html?v=3" class="visualization-frame"></iframe>
+            <p>This violin plot shows the complete distribution of policy lengths within Old School and New School platform cohorts, revealing not just average lengths but also the range and clustering patterns. The shape of each violin indicates whether platforms in that cohort tend to cluster around similar lengths or show wide variation. This analysis helps determine if newer platforms have standardized on shorter, more accessible policies or if length variation persists across both generations.</p>
+            <h3 class="subheading">Length Distribution Shape Analysis</h3>
+            <iframe src="../visualizations/q6_html/length_violin.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <section id="q6_length_time" class="section section-viz">
-            <h2>Q6 · Length Over Time</h2>
-            <p>How policy lengths have changed over time across cohorts.</p>
-            <h3 class="subheading">Length Evolution Over Time</h3>
-            <iframe src="visualizations/q6_html/length_over_time.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q6 · Length Evolution Over Time</h2>
+            <p>This temporal comparison tracks how Old School versus New School platforms have expanded (or contracted) their policy lengths over time. The dual timeline reveals whether both cohorts follow similar growth patterns or if generational differences lead to divergent approaches to policy comprehensiveness. Notice key inflection points where regulatory events affected each cohort differently, potentially reflecting their different user bases, business models, and legal risk profiles.</p>
+            <h3 class="subheading">Cohort-Specific Length Trends</h3>
+            <iframe src="../visualizations/q6_html/length_over_time.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <!-- Q7 anchor -->
@@ -303,17 +551,17 @@
         <!-- Q7 SLIDE -->
         <section id="q7_arbitration_count" class="section section-viz">
             <h2>Q7 · Arbitration Clauses</h2>
-            <p>Severity and presence of arbitration clauses across platforms.</p>
+            <p>This analysis examines mandatory arbitration clauses - legal provisions that force users into private arbitration rather than allowing court lawsuits. The visualization shows both the prevalence of these clauses across platforms and their relative "severity" based on how restrictive the arbitration terms are. Platforms with darker colors impose more limiting arbitration requirements, effectively reducing users' legal options. This analysis helps users understand which platforms maintain stronger legal barriers to dispute resolution and user protection.</p>
             <h3 class="subheading">Arbitration Analysis</h3>
-            <iframe src="visualizations/q7_html/arbitration_count.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q7_html/arbitration_count.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <!-- Q7 SLIDE -->
         <section id="q7_arbitration_fig" class="section section-viz">
-            <h2>Q7 · Arbitration Clauses</h2>
-            <p>Severity and presence of arbitration clauses across platforms.</p>
-            <h3 class="subheading">Arbitration Analysis</h3>
-            <iframe src="visualizations/q7_html/arbitration_figure.html?v=3" class="visualization-frame"></iframe>
+            <h2>Q7 · Arbitration Severity Analysis</h2>
+            <p>This detailed breakdown examines not just which platforms include arbitration clauses, but how restrictive those clauses are in practice. The severity scoring considers factors like mandatory versus optional arbitration, class action waivers, fee structures, and location requirements. Platforms with higher severity scores create more significant barriers to user legal recourse, while lower scores indicate more user-friendly dispute resolution approaches.</p>
+            <h3 class="subheading">Arbitration Restrictiveness Scale</h3>
+            <iframe src="../visualizations/q7_html/arbitration_figure.html?v=3" class="visualization-frame"></iframe>
         </section>
 
         <!-- Q8 anchor -->
@@ -322,9 +570,9 @@
         <!-- Q8 SLIDE -->
         <section id="q8_class_action" class="section section-viz">
             <h2>Q8 · Class Action Analysis</h2>
-            <p>Class action waiver patterns and changes over time.</p>
+            <p>This temporal analysis tracks the adoption and evolution of class action waivers - clauses that prevent users from joining group lawsuits against platforms. The visualization shows how these user-restrictive clauses have become increasingly common since 2010, with most major platforms now including some form of class action limitation. The chart reveals industry-wide trends in legal risk management and highlights which platforms have resisted this trend versus those that have embraced stronger legal protections. Understanding these patterns helps users recognize their collective legal rights across different platforms.</p>
             <h3 class="subheading">Class Action Analysis</h3>
-            <iframe src="visualizations/q8_html/index.html?v=3" class="visualization-frame"></iframe>
+            <iframe src="../visualizations/q8_html/index.html?v=3" class="visualization-frame"></iframe>
         </section>
     </div>
 
@@ -401,23 +649,6 @@
     }, { threshold: 0.4 });
 
     spySections.forEach(sec => spyObserver.observe(sec));
-
-    // Mobile hamburger menu functionality
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navMenu = document.getElementById('nav-menu');
-    
-    hamburgerBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('nav-open');
-        hamburgerBtn.classList.toggle('hamburger-open');
-    });
-
-    // Close mobile menu when a nav item is clicked
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', () => {
-            navMenu.classList.remove('nav-open');
-            hamburgerBtn.classList.remove('hamburger-open');
-        });
-    });
 
     // Overview card fade-in
     const cardObserver = new IntersectionObserver((entries) => {
